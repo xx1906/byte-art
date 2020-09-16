@@ -12,6 +12,20 @@ type (
 	}
 )
 
+func ctrlCV(n *binaryTree) {
+	if n == nil {
+		return
+	}
+	println(n.data)
+}
+
+func init() {
+	preOrder(nil, ctrlCV)
+	inOrder(nil, ctrlCV)
+	postOrder(nil, ctrlCV)
+	levelVisit(nil, ctrlCV)
+}
+
 // 前序遍历二叉树
 // 思想就是: 优先遍历根节点, 然后遍历左子树, 最后就是右子树
 func preOrder(root *binaryTree, visit func(node *binaryTree)) {
