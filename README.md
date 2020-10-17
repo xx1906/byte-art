@@ -1,58 +1,46 @@
-## byte-art 
+## byte-art
 
-社区著名的[err](http://stackoverflow.com/a/29138676/3158232)问题, 我之前也遇到了
-```go
-package main
+![数据结构 演算法](./builder.png)
 
-type shower interface {
-  getWater() []shower
-}
+### 数据机构与算法
+* 线性表
+    1. [数组](linear_list/array)
+    2. [链表](linear_list/my_list)
+    3. [队列](linear_list/my_queue)
+    4. [栈](linear_list/my_stack)
+* 树
+    1. 二叉树
+        * [BST](tree/bst) 
+        * 堆-->完全二叉树
+        * [AVL](tree/avl)
+        
+    2. 多叉树
+        * BTree    
+* 图
 
-type display struct {
-  SubDisplay *display
-}
+* 排序算法
+    1. [快速排序](my_sort/my_quick_sort)
+* 查找算法
+     1. 二分查找
+        * 普通二分查找算法
+        * [拉格朗日查找算法](search/lagrange_searh)
+     2. map 
+     3. 基于树
+        * [bst](tree/bst)
+        * [avl](tree/avl)
+        * red-black tree
+        * BTree
+     4. 基于图
+        * 深度遍历
+        * 广度遍历
+     5. 其他
+        * 启发式搜索   
 
-func (d display) getWater() []shower {
-  return []shower{display{}, d.SubDisplay}
-}
+### 数据库
+    1. MySQL 
+    2. redis
 
-func main() {
-  // SubDisplay will be initialized with null
-  s := display{}
-  // water := []shower{nil}
-  water := s.getWater()
-  for _, x := range water {
-    if x == nil {
-      panic("everything ok, nil found")
-    }
+### 错误集合
 
-    //first iteration display{} is not nil and will
-    //therefore work, on the second iteration
-    //x is nil, and getWater panics.
-    x.getWater()
-  }
-}
-```
-
-> 怎么判断解决这个问题
-```go
-// 答案也是来自社区
-package main
-
-import (
-	"fmt"
-	"io"
-	"reflect"
-)
-
-type reader struct{}
-
-func (*reader) Read(p []byte) (int, error) { return 0, nil }
-
-func main() {
-	var r io.Reader = (*reader)(nil)
-
-	fmt.Println(r, r == nil)
-	fmt.Println(reflect.ValueOf(r).IsNil())
-
-```
+* stackOverflow
+      1. [如何正确验证 golang interface 的 nil](stack_overflow/question/hiding_nil_values.md)
