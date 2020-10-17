@@ -11,7 +11,7 @@
 * 树
     1. 二叉树
         * [BST](tree/bst) 
-        * 堆-->完全二叉树
+        * [堆-->完全二叉树](my_sort/my_heap_sort)
         * [AVL](tree/avl)
         
     2. 多叉树
@@ -20,6 +20,7 @@
 
 * 排序算法
     1. [快速排序](my_sort/my_quick_sort)
+    2. [堆排序](my_sort/my_heap_sort)
 * 查找算法
      1. 二分查找
         * 普通二分查找算法
