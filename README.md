@@ -38,7 +38,10 @@
      5. 其他
         * 启发式搜索
 * HTTP 
-    1. [基于Trie的路由实现](tree/trie/route/main.go)        
+    1. [基于Trie的路由实现](tree/trie/route/main.go)   
+    
+* 综合运用
+    * [LRU缓存策略实现](linear_list/my_list/lru/main.go)         
 
 ### 数据库
     1. MySQL 
