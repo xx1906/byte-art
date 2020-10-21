@@ -29,6 +29,7 @@
      3. 基于树
         * [bst](tree/bst)
         * [avl](tree/avl)
+        * [trie](tree/trie/main.go)
         * red-black tree
         * BTree
      4. 基于图
