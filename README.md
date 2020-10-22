@@ -46,7 +46,7 @@
 ### 数据库
 
 1. MySQL
-    * [MySQL 大纲图](asset/mysql/mysql.svg) 
+    * [MySQL 大纲图](asset/mysql/mysql.png) 
 2. redis
 
 ### 错误集合
