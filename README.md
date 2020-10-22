@@ -44,8 +44,10 @@
     * [LRU缓存策略实现](linear_list/my_list/lru/main.go)         
 
 ### 数据库
-    1. MySQL 
-    2. redis
+
+1. MySQL
+    * [MySQL 大纲图](asset/mysql/mysql.svg) 
+2. redis
 
 ### 错误集合
 
