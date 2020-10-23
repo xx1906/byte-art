@@ -48,6 +48,7 @@
 1. MySQL
     * [MySQL 大纲图](asset/mysql/mysql.png) 
 2. redis
+    * [redis 知识点总结](asset/redis/redis.xmind)
 
 ### 错误集合
 
