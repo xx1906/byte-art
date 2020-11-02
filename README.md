@@ -47,6 +47,7 @@
 
 1. MySQL
     * [MySQL 大纲图](asset/mysql/mysql.png) 
+    * [ken_len](mysql/key_len_calc_summary.md)
 2. redis
     * [redis 知识点总结](asset/redis/redis.xmind)
 
