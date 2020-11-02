@@ -53,8 +53,9 @@ type slice struct {
 * 如果 old.cap * 2 >= 1024 则 newcap = old.cap * 1.25, 这个和 c++ 中 vector 底层的算法一致
 
 
-
+**需要确定 cap 为 2 的整次幂**, 所以之后会有一个调整
 确定了新切片的容量的大小之后, 分配一个新的空间, 然后把 old.array 的内容拷贝到新的切片的 array
+
 
 ```golang
 
