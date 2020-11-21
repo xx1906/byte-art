@@ -65,4 +65,6 @@
 * [tcp三次握手包](/wireshark_analysis/TCP的三次握手.md)
 * [tcp四次挥手包](/wireshark_analysis/TCP的四次挥手数据包.md)
 * [SYN-RST](/wireshark_analysis/客户端连接存活的主机但是没有服务的tcp包.md)
-    
+
+### gists 集合
+[判断一个数是否是2的整次幂](/go_gist/is_power_of_two.go)    
