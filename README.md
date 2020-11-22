@@ -72,3 +72,4 @@
 
 ### go源代码
 [slice切片代码阅读](go_gist/sl/slice_src_int.md)
+[unsafe 包](go_gist/unsafe_sty/unsafe.md)
