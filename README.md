@@ -56,15 +56,15 @@
 * stackOverflow
 1. [如何正确验证 golang interface 的 nil](stack_overflow/question/hiding_nil_values.md)
 * golang 
-1. [切片高级操作](/golang/slice_advance.md)      
+1. [切片高级操作](golang/slice_advance.md)      
 ### 工程实践
 * [blog](https://www.jianshu.com/p/07cf4093536a)
 * [微软分布式链路追踪 -- Application insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
 
 ### wireshark 数据包分析
-* [tcp三次握手包](/wireshark_analysis/TCP的三次握手.md)
-* [tcp四次挥手包](/wireshark_analysis/TCP的四次挥手数据包.md)
-* [SYN-RST](/wireshark_analysis/客户端连接存活的主机但是没有服务的tcp包.md)
+* [tcp三次握手包](wireshark_analysis/TCP的三次握手.md)
+* [tcp四次挥手包](wireshark_analysis/TCP的四次挥手数据包.md)
+* [SYN-RST](wireshark_analysis/客户端连接存活的主机但是没有服务的tcp包.md)
 
 ### gists 集合
 [判断一个数是否是2的整次幂](/go_gist/is_power_of_two.go)    
@@ -72,4 +72,5 @@
 
 ### go源代码
 [slice切片代码阅读](go_gist/sl/slice_src_int.md)
+
 [unsafe 包](go_gist/unsafe_sty/unsafe.md)
