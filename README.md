@@ -68,3 +68,7 @@
 
 ### gists 集合
 [判断一个数是否是2的整次幂](/go_gist/is_power_of_two.go)    
+
+
+### go源代码
+[slice切片代码阅读](go_gist/sl/slice_src_int.md)
