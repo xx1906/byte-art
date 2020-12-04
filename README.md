@@ -50,6 +50,7 @@
     * [ken_len](mysql/key_len_calc_summary.md)
 2. redis
     * [redis 知识点总结](asset/redis/redis.xmind)
+    * [基于redis list 实现的消息ack](asset/redis/redis_ack/redis消息队列ack实现.md)
 
 ### 错误集合
 
