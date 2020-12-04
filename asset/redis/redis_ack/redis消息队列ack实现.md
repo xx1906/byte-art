@@ -136,8 +136,7 @@ local cancelScript = "local list_key = KEYS[1]; local random_str_key = KEYS[2]; 
 
 ## 还有什么其他的方法吗
 
-* 需要做到响应式的话, 需要在消息投递的时候放入 list 的时候插入一个消息的 id
-
+* 需要做到响应式的话, 需要在消息投递的时候放入 list 的时候插入一个消息的 id, 并且复制一份到 string 里面去, 消费消息之后把对结果删除就好, 取消的话, 把值重新投放到list 里面
 
 
 求个👍
