@@ -660,5 +660,5 @@ func (c *valueCtx) Value(key interface{}) interface{} {
 ### 总结
 * WithValue 提供的 key 必须是可比较的， 并且不能是内置类型(避免冲突)， 比如 字符串等
 * cancelCtx 的实现通过起一个 goroutine 来监听一个 channel， 然后 调用 cancel 方法时， 调用 clone(c.done) c.done 为一个 channel 
-* WithTimeout 和 WithDeadline 通过 起一个定时器， 然后开一个起一个 timer = time.AfterFunc() 来定时 调用 cancel 
+* WithTimeout 和 WithDeadline 通过开一个 timer = time.AfterFunc() 来定时 调用 cancel 函数 
 * WithTimeout  WithDeadline 通过 内嵌 cancelCtx 来实现 cancel 
