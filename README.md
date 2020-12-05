@@ -59,7 +59,9 @@
 * golang 
 1. [切片高级操作](golang/slice_advance.md) 
 
-2. [golang的context中文全文注释](golang/context.md)     
+2. [golang的context中文全文注释](golang/context.md)    
+
+3. [cas_mutex_cmpxchgl](golang/挖掘mutex_cas_cmpxchgl.md) 
 ### 工程实践
 * [blog](https://www.jianshu.com/p/07cf4093536a)
 * [微软分布式链路追踪 -- Application insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
@@ -74,6 +76,8 @@
 
 
 ### go源代码
+[golang 官方源代码](https://go.googlesource.com/go/)
+
 [slice切片代码阅读](go_gist/sl/slice_src_int.md)
 
 [unsafe 包](go_gist/unsafe_sty/unsafe.md)
