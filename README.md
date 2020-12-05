@@ -57,7 +57,9 @@
 * stackOverflow
 1. [如何正确验证 golang interface 的 nil](stack_overflow/question/hiding_nil_values.md)
 * golang 
-1. [切片高级操作](golang/slice_advance.md)      
+1. [切片高级操作](golang/slice_advance.md) 
+
+2. [golang的context中文全文注释](golang/context.md)     
 ### 工程实践
 * [blog](https://www.jianshu.com/p/07cf4093536a)
 * [微软分布式链路追踪 -- Application insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
