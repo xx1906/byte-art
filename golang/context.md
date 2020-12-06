@@ -14,7 +14,7 @@ type Context interface {
 	// should be canceled. Deadline returns ok==false when no deadline is
 	// set. Successive calls to Deadline return the same results.
     
-    // Deadline 函数返回应取消该上下文完成工作的时间. 如果没有设置截止日期， 则截止日志 返回的 ok == false, 连续调用 
+    // Deadline 函数返回应取消该上下文完成工作的时间. 如果没有设置截止日期，返回的 ok == false, 连续调用 
     // Deadline 函数返回相同的结果
 	Deadline() (deadline time.Time, ok bool)
 
