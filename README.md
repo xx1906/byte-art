@@ -48,6 +48,7 @@
 1. MySQL
     * [MySQL 大纲图](asset/mysql/mysql.png) 
     * [ken_len](mysql/key_len_calc_summary.md)
+    * [profiling-SQL执行(性能)流程分析](asset/mysql/profile/first/start/data.md)
 2. redis
     * [redis 知识点总结](asset/redis/redis.xmind)
     * [基于redis list 实现的消息ack](asset/redis/redis_ack/redis消息队列ack实现.md)
