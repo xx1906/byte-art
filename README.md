@@ -82,3 +82,8 @@
 [slice切片代码阅读](go_gist/sl/slice_src_int.md)
 
 [unsafe 包](go_gist/unsafe_sty/unsafe.md)
+
+### 加密解密算法
+
+1. [rsa 算法加密解密的简单实现](encryption/symmetric/rsa.md)
+
