@@ -1,0 +1,41 @@
+/*
+ grpc 编码方式解析
+ 参考文档: https://developers.google.com/protocol-buffers/docs/encoding
+ @author 我的我的
+ 重点: golang 里面 -- 如果是默认值的， 默认不编码
+ */
+syntax = "proto3";
+
+option go_package = "demo";
+
+message Test1 {
+  int32 a = 1; // wire type: 0
+  sint32 b = 2; // wire type: 0
+  sint64 c = 3;  // wire type: 1
+  fixed32 d = 4; // wire type: 5
+  fixed64 e = 5; // wire type: 64
+  double f = 7; // wire type: 1
+  float g = 8; // wire type: 5
+  repeated int32 h = 9; // wire type: 2
+  map<int32, int32> i = 10; // map 类型
+}
+
+message Test2 {
+  int32 a = 1;
+  bool b = 2;
+}
+
+message Test3 {
+  int32 a = 1;
+  bool b = 2;
+  sint32 c = 3;
+}
+
+message Test4 {Test1 a = 1;}
+
+message Test5 {repeated Test1 a = 1;}
+
+message Test6 {
+  repeated Test1 test1 = 1;
+  sint32 b = 2;
+}
