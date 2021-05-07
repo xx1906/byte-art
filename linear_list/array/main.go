@@ -4,8 +4,8 @@
 package main
 
 import (
-    "errors"
-    "fmt"
+	"errors"
+	"fmt"
 )
 
 // 数组: 底层一个连续的内存空间, 数组是一个类型, (基础数据类型加上数组的长度组成)
@@ -19,141 +19,141 @@ import (
 type adt int
 
 func defaultAdt() adt {
-    return adt(0)
+	return adt(0)
 }
 
 // 如何判断一个数组和切片的区别
 func init() {
-    var array [12]int
-    var sl []int
-    fmt.Printf("array:%T, sl:%T\n", array, sl) // output:array:[12]int, sl:[]int
+	var array [12]int
+	var sl []int
+	fmt.Printf("array:%T, sl:%T\n", array, sl) // output:array:[12]int, sl:[]int
 }
 
 type myArray struct {
-    arr []adt  // 底层的切片
-    ln  uint32 // 长度 等价于 len(arr)
-    cap uint32 // 容量 等价于 cap(arr)
+	arr []adt  // 底层的切片
+	ln  uint32 // 长度 等价于 len(arr)
+	cap uint32 // 容量 等价于 cap(arr)
 }
 
 // 新建一个容量为 cap 长度的数组, 长度为0, 容量为 cap
 func NewMyArray(cap uint32) *myArray {
-    
-    return &myArray{
-        arr: make(
-            []adt, // 放一个切片
-            cap,   // 初始容量
-            cap,   // 最大的容量
-        ),
-        cap: cap, // 容量
-        ln:  0,   // 初始的长度
-    }
+
+	return &myArray{
+		arr: make(
+			[]adt, // 放一个切片
+			cap,   // 初始容量
+			cap,   // 最大的容量
+		),
+		cap: cap, // 容量
+		ln:  0,   // 初始的长度
+	}
 }
 
 // 往数组中插入数据
 // idx  是插入的位置
 // data 是插入的数据
 func (c *myArray) Insert(idx uint32, data adt) (err error, ok bool) {
-    // 如果数组的长度不够了, 启动数组的扩容
-    if c.ln >= c.cap {
-        c.extend()
-    }
-    
-    // 如果要插入的位置要大于当前的长度, 返回错误
-    if idx > c.ln {
-        err = errors.New(fmt.Sprintf("idx:%d large than ln:%d", idx, c.ln))
-        return err, ok
-    }
-    
-    // 把数据移动一个位置
-    for i := c.ln; i > idx; i-- {
-        c.arr[i] = c.arr[i-1]
-    }
-    
-    // 赋值
-    c.arr[idx] = data
-    c.ln++
-    return err, true
+	// 如果数组的长度不够了, 启动数组的扩容
+	if c.ln >= c.cap {
+		c.extend()
+	}
+
+	// 如果要插入的位置要大于当前的长度, 返回错误
+	if idx > c.ln {
+		err = errors.New(fmt.Sprintf("idx:%d large than ln:%d", idx, c.ln))
+		return err, ok
+	}
+
+	// 把数据移动一个位置
+	for i := c.ln; i > idx; i-- {
+		c.arr[i] = c.arr[i-1]
+	}
+
+	// 赋值
+	c.arr[idx] = data
+	c.ln++
+	return err, true
 }
 
 // 数组扩容, 长度是原来容量的两倍
 func (c *myArray) extend() {
-    newCap := c.cap * 2
-    
-    newArr := make([]adt, newCap, newCap)
-    c.cap = newCap
-    // 把原来的位置整体拷贝过去
-    copy(newArr, c.arr)
-    c.arr = newArr
-    
+	newCap := c.cap * 2
+
+	newArr := make([]adt, newCap, newCap)
+	c.cap = newCap
+	// 把原来的位置整体拷贝过去
+	copy(newArr, c.arr)
+	c.arr = newArr
+
 }
 
 // 返回数组的长度
 
 func (c *myArray) Len() uint32 {
-    return c.ln
+	return c.ln
 }
 
 // 返回数组的容量
 func (c *myArray) Cap() uint32 {
-    return c.cap
+	return c.cap
 }
 
 // 删除数组的底层数据信息
 // idx 是需要删除数据的位置
 func (c *myArray) Delete(idx uint32) (err error, data adt) {
-    // 如果 idx 大于当前的长度, 直接报错就好了
-    if idx >= c.ln {
-        err = errors.New(fmt.Sprintf("idx:%d is larger than %d", idx, c.ln))
-        return err, data
-    }
-    
-    data = c.arr[idx]
-    for i := idx; i < c.ln-1; i++ {
-        c.arr[i] = c.arr[i+1]
-    }
-    c.ln--
-    return nil, data
+	// 如果 idx 大于当前的长度, 直接报错就好了
+	if idx >= c.ln {
+		err = errors.New(fmt.Sprintf("idx:%d is larger than %d", idx, c.ln))
+		return err, data
+	}
+
+	data = c.arr[idx]
+	for i := idx; i < c.ln-1; i++ {
+		c.arr[i] = c.arr[i+1]
+	}
+	c.ln--
+	return nil, data
 }
 
 // 软删除数据, 其实就是把数组最后一个赋值到需要删除数据的位置
 // 然后把数组的最后一个数据设置为默认值
 // 再把数组的长度减一
 func (c *myArray) SoftDelete(idx uint32) (err error, data adt) {
-    // 如果 idx 大于当前的长度, 直接报错就好了
-    if idx >= c.ln {
-        err = errors.New(fmt.Sprintf("idx:%d is larger than %d", idx, c.ln))
-        return err, data
-    }
-    data = c.arr[idx]
-    c.arr[idx] = c.arr[c.ln-1]
-    c.arr[c.ln-1] = defaultAdt() // 设置为默认值
-    c.ln--
-    return nil, data
+	// 如果 idx 大于当前的长度, 直接报错就好了
+	if idx >= c.ln {
+		err = errors.New(fmt.Sprintf("idx:%d is larger than %d", idx, c.ln))
+		return err, data
+	}
+	data = c.arr[idx]
+	c.arr[idx] = c.arr[c.ln-1]
+	c.arr[c.ln-1] = defaultAdt() // 设置为默认值
+	c.ln--
+	return nil, data
 }
 func main() {
-    var my = NewMyArray(2)
-    fmt.Printf("data:%#v\n", my)
-    
-    _, _ = my.Insert(0, 13)
-    _, _ = my.Insert(0, 23)
-    _, _ = my.Insert(0, 33)
-    _, _ = my.Insert(0, 43)
-    _, _ = my.Insert(0, 53)
-    _, _ = my.Insert(0, 63)
-    _, _ = my.Insert(0, 73)
-    _, _ = my.Insert(0, 83)
-    _, _ = my.Insert(0, 93)
-    _, _ = my.Insert(0, 103)
-    _, _ = my.Insert(1, 113)
+	var my = NewMyArray(2)
+	fmt.Printf("data:%#v\n", my)
 
-    var data adt
-    var err error
-    err, data = my.SoftDelete(0)
-    if err != nil {
-        fmt.Printf("soft delete,err:%s,%v\n", err, data)
-    }
-    
-    fmt.Printf("data:%#v\n", my)
+	_, _ = my.Insert(0, 13)
+	_, _ = my.Insert(0, 23)
+	_, _ = my.Insert(0, 33)
+	_, _ = my.Insert(0, 43)
+	_, _ = my.Insert(0, 53)
+	_, _ = my.Insert(0, 63)
+	_, _ = my.Insert(0, 73)
+	_, _ = my.Insert(0, 83)
+	_, _ = my.Insert(0, 93)
+	_, _ = my.Insert(0, 103)
+	_, _ = my.Insert(1, 113)
+
+	var data adt
+	var err error
+	err, data = my.SoftDelete(0)
+	if err != nil {
+		fmt.Printf("soft delete,err:%s,%v\n", err, data)
+	}
+
+	fmt.Printf("data:%#v\n", my)
 }
 
 // 空一行
