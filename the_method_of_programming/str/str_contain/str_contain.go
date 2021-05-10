@@ -25,3 +25,21 @@ func StrContainForce(s1, s2 string) bool {
 	}
 	return ans
 }
+
+// 计数法, s2 包含 s1 中所有的字母
+func StringContainCount(s1, s2 []byte) bool {
+	var buffA [26]byte
+	var buffB [26]byte
+	for _, v := range s1 {
+		buffA[v-'a']++
+	}
+	for _, v := range s2 {
+		buffB[v-'a']++
+	}
+	for i := 0; i < len(buffA); i++ {
+		if buffB[i] < buffA[i] {
+			return false
+		}
+	}
+	return true
+}
