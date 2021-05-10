@@ -43,3 +43,19 @@ func StringContainCount(s1, s2 []byte) bool {
 	}
 	return true
 }
+
+// 使用 hash 的思想, 判断字符串 s2 是否包含 s1 中的所有字母
+func StringContainHash(s1, s2 []byte) bool {
+	var hash int64
+	for _, v := range s2 {
+		hash |= int64(1 << int64(v-'a'))
+	}
+
+	for _, v := range s1 {
+		h := int64(1 << int64(v-'a'))
+		if hash&h != h {
+			return false
+		}
+	}
+	return true
+}

@@ -23,3 +23,14 @@ func TestStringContainCount(t *testing.T) {
 		t.Error("not pass", ans)
 	}
 }
+
+func TestStringContainHash(t *testing.T) {
+	var s1 = "abcffd"
+	var s2 = "ffabddcef"
+	var ans = StringContainHash([]byte(s1), []byte(s2))
+	if ans {
+		t.Log("s1 ", s1, ", s2", s2)
+	} else {
+		t.Error("not pass", ans)
+	}
+}
