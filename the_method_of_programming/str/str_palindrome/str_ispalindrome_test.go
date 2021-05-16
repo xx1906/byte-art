@@ -22,3 +22,29 @@ func TestIsPalindrome(t *testing.T) {
 		})
 	}
 }
+
+func TestIsPalindromeWithMiddle(t *testing.T) {
+	type args struct {
+		data []byte
+	}
+	tests := []struct {
+		name    string
+		args    args
+		wantAns bool
+	}{
+		{name: "success", args: args{data: []byte("this is error")}, wantAns: false},
+		{name: "success", args: args{data: []byte("oheeho")}, wantAns: true},
+		{name: "success", args: args{data: []byte("aabaa")}, wantAns: true},
+		{name: "success", args: args{data: []byte("")}, wantAns: true},
+		{name: "success", args: args{data: []byte("a")}, wantAns: true},
+		{name: "success", args: args{data: []byte("ab")}, wantAns: false},
+		{name: "success", args: args{data: []byte("aba")}, wantAns: false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if gotAns := IsPalindromeWithMiddle(tt.args.data); gotAns != tt.wantAns {
+				t.Errorf("IsPalindromeWithMiddle() = %v, want %v", gotAns, tt.wantAns)
+			}
+		})
+	}
+}

@@ -12,3 +12,31 @@ func IsPalindrome(data []byte) (ans bool) {
 	}
 	return
 }
+
+// 从两边向中间扫描是否是回文字符串
+func IsPalindromeWithMiddle(data []byte) (ans bool) {
+
+	// 默认是回文串
+	ans = true
+	var front = 0
+	var back = 0
+	// 字符个数是 2 的倍数
+	if len(data)%2 == 0 {
+		front = len(data)/2 - 1
+		back = len(data) / 2
+	} else {
+		// 基数个数值
+		front = len(data) / 2
+		back = len(data) / 2
+	}
+	for front >= 0 && back < len(data) {
+		//fmt.Println(data[front], data[back])
+		if data[front] != data[back] {
+			ans = false
+			break
+		}
+		front--
+		back++
+	}
+	return
+}
