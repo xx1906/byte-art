@@ -39,3 +39,14 @@ func ShiftStrLeftMove(data []byte) {
 		data[sn], data[ss] = data[ss], data[sn]
 	}
 }
+
+// 字符个数的匹配
+// 给定一个字符串，写一个函数， 查找出改字符串中的每个字符出现的次数， 要求区分大小写
+// 使用数组来保存即可
+func StringLetterCount(data []byte) []byte {
+	var ans = make([]byte, 128, 128)
+	for _, v := range data {
+		ans[v] ++
+	}
+	return ans
+}
