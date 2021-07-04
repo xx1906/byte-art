@@ -91,3 +91,5 @@
 
 1. [protocol buffer 编码原理实现](encryption/protobuffer/data.md)
 
+### 算法的时间复杂度比较的是什么
+1. 算法在时间维度上的相对增长率
