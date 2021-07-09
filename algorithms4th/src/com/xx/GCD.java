@@ -19,11 +19,12 @@ public class GCD {
             a = b;
             b = temp;
         }
+        // 如果其中一个为 0，直接返回 0
         if (a == 0 || b == 0) {
             return 0;
         }
         while (b > 0) {
-            temp = a % b;
+            temp = a % b; // a % b  等价于 a - (a/b)*b
             a = b;
             b = temp;
         }

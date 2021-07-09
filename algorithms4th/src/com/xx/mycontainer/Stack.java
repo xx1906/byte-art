@@ -21,7 +21,7 @@ public class Stack<Item> implements Iterable<Item> {
         System.out.println(is.size());
         System.out.println(is.pop());
         System.out.println(is.size());
-        System.out.println("peek:"+is.peek());
+        System.out.println("peek:" + is.peek());
         System.out.println(is.pop());
         System.out.println(is.size());
         System.out.println(is.pop());
@@ -38,6 +38,7 @@ public class Stack<Item> implements Iterable<Item> {
 
     /**
      * 获取栈顶元素
+     *
      * @return
      */
     public Item peek() {
