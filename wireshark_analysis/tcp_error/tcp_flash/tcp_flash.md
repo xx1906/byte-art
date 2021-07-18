@@ -1,4 +1,4 @@
-# tcp 闪断试验
+# TCP 闪断试验
 
 > 工具: golang, wireshark, 路由器, 客户端(手机)
 
@@ -9,6 +9,8 @@
 选项: 2. 重传，最后发送 RST 包
 选项: 3. 。。。
 
+> 简单的测试程序片段
+
 ```go
 engine.GET("/tcp/flash", func(ctx *gin.Context) {
     time.Sleep(time.Minute) // 睡眠 1 分钟再返回
@@ -16,7 +18,9 @@ engine.GET("/tcp/flash", func(ctx *gin.Context) {
 })
 ```
 ## 峰回 -- 有疑问的地方必然有答案
-想要了解突然断开了之后会发送什么❓最后的方法就是动手实验了。 
+想要了解突然断开了之后会发送什么❓最好的方法就是动手实验了。 
+
+
 
 以下是具体步骤: 
 1. 启动 wireshark 进行抓包
@@ -39,11 +43,11 @@ engine.GET("/tcp/flash", func(ctx *gin.Context) {
 
 ## 落定
 
-1. 在服务端睡眠的过程中, tcp 会发送 keep-alive 包来保活
+1. 在服务端睡眠的过程中, TCP 会发送 keep-alive 包来保活
 2. 在客户端拔网线之后，会触发 TCP 的超时重传机制, 服务器在经过一定的超时重传包之后，最后会发送一个 RST 的包
 
 所以 TCP 链接中的双方有一方突然断开链接之后，当前的 TCP 就处于半链接的状态，触发 TCP 的超时重传机制，再多次重传没有收到回复之后，最后会发送 RST 包断开链接
 
 [tcp闪断包 tcpdump 完整包](tcp_flash.pcapng),[完整的 go 代码](main.go)
 
-最后: tcp 确实是一个让人又爱又恨的协议
+最后: TCP 确实是一个让人又爱又恨的协议
