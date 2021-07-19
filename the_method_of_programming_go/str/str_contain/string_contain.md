@@ -1,4 +1,5 @@
 # 字符串包含
+[传送链接](https://github.com/hunger-lab/The-Art-Of-Programming-By-July/blob/master/ebook/zh/01.02.md)
 
 1. 给定一个长字符串 a 和 一个短字符串 b。 请问，如何最快地判断出短字符串 b 中的所有字符都在长字符串 a 中？ 
 请编写一个函数 `bool StringContain(a string, b string)` 实现所有的功能。
@@ -18,4 +19,7 @@
 
 ### 解法
 1. 暴力枚举每个在 a, b 中的字母
+2. 先排序，然后枚举(总体思想感觉是贪心的思想)
+3. 素数相乘法(使用了素数的特性)
+4. 位运算法(思想偏向于哈希)
 
