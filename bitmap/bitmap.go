@@ -61,3 +61,8 @@ func (bm *Bitmap) Resize(newSz uint64) {
 	bm.data = data
 	bm.size = newSz
 }
+
+func (bm *Bitmap) Clear() {
+	bm.data = make([]byte, 0, 0)
+	bm.size = 0
+}
