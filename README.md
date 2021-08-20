@@ -38,6 +38,8 @@
      5. 其他
         * 启发式搜索
         * [bitmap](bitmap/bitmap.go)
+* 其他
+    1. [判断整数是否为 2 的整次幂](go_gist/is_power_of_two.go)        
 * HTTP 
     1. [基于Trie的路由实现](tree/trie/route/main.go)   
     
