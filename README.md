@@ -37,6 +37,7 @@
         * 广度遍历
      5. 其他
         * 启发式搜索
+        * [bitmap](bitmap/bitmap.go)
 * HTTP 
     1. [基于Trie的路由实现](tree/trie/route/main.go)   
     
