@@ -38,6 +38,8 @@
      5. 其他
         * 启发式搜索
         * [bitmap](bitmap/bitmap.go)
+* 其他
+    1. [判断整数是否为 2 的整次幂](go_gist/is_power_of_two.go)        
 * HTTP 
     1. [基于Trie的路由实现](tree/trie/route/main.go)   
     
@@ -94,3 +96,6 @@
 
 ### 算法的时间复杂度比较的是什么
 1. 算法在时间维度上的相对增长率
+
+### 存储引擎层
+1. [wiredtiger](http://source.wiredtiger.com/2.6.1/index.html) 作用于 MongoDB
