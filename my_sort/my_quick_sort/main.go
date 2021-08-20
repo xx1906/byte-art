@@ -65,6 +65,43 @@ func partition(arr []int, lo, hi int, compare func(i, j int) bool) (pos int) {
 	return i
 }
 
+// knuth 洗牌算法
+func shuffle(data []int) {
+	rand.Seed(time.Now().UnixNano())
+	for i := len(data) - 1; i >= 0; i-- {
+		var index = rand.Int() % (i + 1)
+		data[index], data[i] = data[i], data[index]
+	}
+}
+
+// 快速排序算法
+func quickSortV3(data []int, left, right int) {
+	var partition func(data []int, left, right int) int
+	// 分区函数的实现
+	partition = func(data []int, left, right int) int {
+		piv := data[right]
+		var i, j = left, left
+		for j < right {
+			if data[j] < piv {
+				data[i], data[j] = data[j], data[i]
+				i++
+			}
+			j++
+		}
+		// 交换基准数字的位置
+		data[i], data[right] = data[right], data[i]
+		return i
+	}
+	if left >= right {
+		return
+	}
+
+	piv := partition(data, left, right)
+	// 继续排序基准数字左边和右边的数组
+	quickSortV3(data, left, piv-1)
+	quickSortV3(data, piv+1, right)
+}
+
 func main() {
 	var arr = make([]int, 0)
 	rand.Seed(time.Now().UnixNano())
@@ -84,6 +121,9 @@ func main() {
 		return arr[i] < arr[j]
 	})
 	//  fmt.Println("quickSortV2: ",arr)
+	shuffle(arr)
+	fmt.Println(arr)
+	quickSortV3(arr, 0, len(arr)-1)
 	fmt.Println(arr)
 
 }
