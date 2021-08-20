@@ -21,6 +21,7 @@
 * 排序算法
     1. [快速排序](my_sort/my_quick_sort)
     2. [堆排序](my_sort/my_heap_sort)
+    3. [归并排序](my_sort/my_merge_sort/main.go)
 * 查找算法
      1. 二分查找
         * 普通二分查找算法
