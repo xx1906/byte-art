@@ -55,24 +55,20 @@ func (c *Group) DoChan(key string, execute func() (interface{}, error)) <-chan R
 			c.single = make(map[string]*call)
 		}
 		c.single[key] = ca
-	}
-	// add job ref
-	atomic.AddInt32(&ca.refJob, 1)
-	if !ok {
 		// execute job
 		go func() {
 			defer func() {
 				if err := recover(); err != nil {
-					fmt.Println(err)
+					fmt.Errorf("execute panic:%s", err)
 				}
 			}()
-			value, err := execute()
-			ca.result = value
-			ca.err = err
+			ca.result, ca.err = execute()
 			ca.done <- struct{}{}
 			close(ca.done)
 		}()
 	}
+	// add job ref
+	atomic.AddInt32(&ca.refJob, 1)
 
 	// todo
 	go func() {
