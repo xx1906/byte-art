@@ -39,13 +39,15 @@
      5. 其他
         * 启发式搜索
         * [bitmap](bitmap/bitmap.go)
+        * [进程和线程共享的内容](https://www.cnblogs.com/westlife-11358/p/9234955.html)
 * 其他
     1. [判断整数是否为 2 的整次幂](go_gist/is_power_of_two.go)        
 * HTTP 
     1. [基于Trie的路由实现](tree/trie/route/main.go)   
     
 * 综合运用
-    * [LRU缓存策略实现](linear_list/my_list/lru/main.go)         
+    * [LRU缓存策略实现](linear_list/my_list/lru/main.go)   
+    * [单飞模式](golang/singleflight/single.go)      
 
 ### 数据库
 
