@@ -47,7 +47,7 @@
     
 * 综合运用
     * [LRU缓存策略实现](linear_list/my_list/lru/main.go)   
-    * [单飞模式](golang/singleflight/single.go)      
+    * [单飞模式](golang/singleflight/singleflight.md)      
 
 ### 数据库
 
