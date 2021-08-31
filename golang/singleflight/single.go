@@ -77,9 +77,7 @@ func (c *Group) DoChan(key string, execute func() (interface{}, error)) <-chan R
 
 		r <- Result{Err: ca.err, Value: ca.result} // return job result
 		close(r)
-		if atomic.AddInt32(&ca.refJob, -1) == 0 {
-			c.deleteJob(key, ca)
-		}
+		c.releaseJob(key, ca)
 	}()
 
 	return r
@@ -90,9 +88,10 @@ func (c *Group) DoCall(key string, execute func() (interface{}, error)) Result {
 	return <-r
 }
 
-func (c *Group) deleteJob(key string, ca *call) {
+// release
+func (c *Group) releaseJob(key string, ca *call) {
 	c.mu.Lock()
-	if atomic.LoadInt32(&ca.refJob) == 0 { // double check
+	if atomic.AddInt32(&ca.refJob, -1) == 0 {
 		delete(c.single, key)
 	}
 	c.mu.Unlock()
