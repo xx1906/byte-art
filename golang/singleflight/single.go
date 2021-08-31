@@ -43,9 +43,10 @@ type call struct {
 }
 
 func (c *Group) DoChan(key string, execute func() (interface{}, error)) <-chan Result {
-	r := make(chan Result)
 	c.mu.Lock()
 	defer c.mu.Unlock()
+	r := make(chan Result)
+
 	var ca *call
 	var ok bool
 	if ca, ok = c.single[key]; !ok {
@@ -70,11 +71,9 @@ func (c *Group) DoChan(key string, execute func() (interface{}, error)) <-chan R
 	// add job ref
 	atomic.AddInt32(&ca.refJob, 1)
 
-	// todo
 	go func() {
 		// wait for job done
 		<-ca.done
-
 		r <- Result{Err: ca.err, Value: ca.result} // return job result
 		close(r)
 		c.releaseJob(key, ca)
@@ -84,15 +83,14 @@ func (c *Group) DoChan(key string, execute func() (interface{}, error)) <-chan R
 }
 
 func (c *Group) DoCall(key string, execute func() (interface{}, error)) Result {
-	r := c.DoChan(key, execute)
-	return <-r
+	return <-c.DoChan(key, execute)
 }
 
 // release
 func (c *Group) releaseJob(key string, ca *call) {
 	c.mu.Lock()
+	defer c.mu.Unlock()
 	if atomic.AddInt32(&ca.refJob, -1) == 0 {
 		delete(c.single, key)
 	}
-	c.mu.Unlock()
 }
