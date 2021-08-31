@@ -69,6 +69,12 @@
 
 场景比如: CDN 资源回源主站，redis 缓存穿透(都是多个客户端对同一个资源的同时访问的场景)等等
 
+**不适合使用单飞模式的场景: 比如: **
+
+```sql 
+UPDATE user.balance  SET dollar = dollar - 1 WHERE  id = 233 AND dollar > 1;
+```
+这种非幂等性操作的逻辑，不适合使用单飞模式
 
 ## 如何实现一个单飞模式
 
