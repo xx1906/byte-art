@@ -10,6 +10,8 @@
 
 ### 主机网络配置
 
+**这一步需要根据自身的网络拓扑来构建**
+
 #### hadoop1 节点网络配置
 
 > vim /etc/sysconfig/network-scripts/ifcfg-ens33
