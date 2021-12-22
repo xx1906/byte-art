@@ -10,7 +10,7 @@
 
 ### 主机网络配置
 
-### hadoop1 节点网络配置
+#### hadoop1 节点网络配置
 
 > vim /etc/sysconfig/network-scripts/ifcfg-ens33
 
@@ -38,7 +38,7 @@ GATEWAY="192.168.44.254"
 DNS1="114.114.114.114"                                              
 ```
 
-### hadoop2 节点网络配置
+#### hadoop2 节点网络配置
 
 > vim /etc/sysconfig/network-scripts/ifcfg-ens33
 
@@ -66,7 +66,7 @@ GATEWAY="192.168.44.254"
 DNS1="114.114.114.114"                                              
 ```
 
-### hadoop3 节点网络配置
+#### hadoop3 节点网络配置
 
 > vim /etc/sysconfig/network-scripts/ifcfg-ens33
 
@@ -94,7 +94,7 @@ GATEWAY="192.168.44.254"
 DNS1="114.114.114.114"                                              
 ```
 
-### 三个节点的 `/etc/hosts` 文件配置
+#### 三个节点的 `/etc/hosts` 文件配置
 
  在最后面加入三行
 
