@@ -16,3 +16,4 @@
 *.log
 
 /posts/start-flink/training/*/target/
+/posts/start-flink/training/target/
