@@ -3,6 +3,7 @@ package com.training.operator;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.RichFlatMapFunction;
+import org.apache.flink.api.common.functions.RuntimeContext;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
@@ -60,9 +61,11 @@ class MyFlatMap extends RichFlatMapFunction<String, String> {
 
     @Override
     public void flatMap(String input, Collector<String> out) throws Exception {
-        System.out.println(input);
+        RuntimeContext runtimeContext = getRuntimeContext(); // 获取运行时上下文
+        String taskName = runtimeContext.getTaskName(); // 获取任务的名称
+        System.out.println(input + ", taskName:" + taskName);
         for (String s : input.split(" ")) {
-            out.collect("" + getRuntimeContext().getIndexOfThisSubtask() + ":" + s);
+            out.collect("" + runtimeContext.getIndexOfThisSubtask() + ":" + s);
         }
     }
 }
