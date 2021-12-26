@@ -111,11 +111,8 @@ public class ConnectTransformation {
         SingleOutputStreamOperator<idNameJob> process = connect.process(new joinId2NameJobCoProcessFunctionWithoutState());
 
         // 构造 kafka sink
-
-
         FlinkKafkaProducer010<idNameJob> producer010 = new FlinkKafkaProducer010<idNameJob>(outputTopic, new idNameJob(), props);
         // 添加 kafka 的 sink
-
         process.addSink(producer010);
 
         // 执行 Flink 的程序
