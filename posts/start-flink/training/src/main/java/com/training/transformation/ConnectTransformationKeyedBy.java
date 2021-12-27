@@ -9,7 +9,7 @@
  * 6. 将块表对象流的结果写入到 kafka 中
  * 7. 启动 kafka 程序
  * <p>
- * **使用 KeyBy 并行度只能设置为 1 的问题,::: keyBy 将相同的 Key 发送到相同的 subTask**
+ * **解决没有使用 KeyBy 只能将设置并行度为 1 的问题,::: keyBy 会将相同的 Key 发送到相同的 subTask**
  */
 package com.training.transformation;
 
