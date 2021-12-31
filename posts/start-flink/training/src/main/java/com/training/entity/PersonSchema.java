@@ -1,24 +1,28 @@
 package com.training.entity;
 
-import com.google.gson.Gson;
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.serialization.DeserializationSchema;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
+import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
 
-import java.io.IOException;
+import java.util.Arrays;
+
 
 @Slf4j
 public class PersonSchema implements DeserializationSchema<Person> {
-    private final Gson gson = new Gson();
-
-
-    static {
-        log.info("{}", PersonSchema.class.getName());
-    }
 
     @Override
-    public Person deserialize(byte[] message) throws IOException {
-        return gson.fromJson(new String(message), Person.class);
+    public Person deserialize(byte[] message) {
+        log.info("data:{}", Arrays.toString(message));
+        Person p;
+        try {
+            p = (Person) JSON.parseObject(message, Person.class);
+        } catch (Exception e) {
+            log.error("trace:{}", e.getMessage());
+            p = new Person();
+        }
+        return p;
 
     }
 
