@@ -14,7 +14,7 @@ public class Person {
         p.age = 1;
         p.name = "xkk";
         log.info("{}", p.toString());
-        p = new Person("x", 1);
+        p = new Person("233", "x", 1);
         log.info("{}", p.toString());
     }
 
@@ -26,12 +26,16 @@ public class Person {
     @Expose
     public Integer age;
 
+    @SerializedName("id")
+    public String id;
+
     public Person() {
     }
 
-    public Person(String name, Integer age) {
+    public Person(String id, String name, Integer age) {
         this.name = name;
         this.age = age;
+        this.id = id;
     }
 
     @Override
@@ -39,4 +43,27 @@ public class Person {
         return gson.toJson(this);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }
