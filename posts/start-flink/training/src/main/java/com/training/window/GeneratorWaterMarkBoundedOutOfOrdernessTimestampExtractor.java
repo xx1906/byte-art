@@ -29,13 +29,18 @@ public class GeneratorWaterMarkBoundedOutOfOrdernessTimestampExtractor {
         SingleOutputStreamOperator<SymbolRecord> symbolRecordSingleOutputStreamOperator = env.addSource(new SourceFunction<SymbolRecord>() {
 
             private Boolean isCancel = false;
+            private int sn = 0;
 
             @Override
             public void run(SourceContext<SymbolRecord> ctx) throws Exception {
                 while (!isCancel) {
                     SymbolRecord record = new SymbolRecord();
+                    sn++;
                     record.eventTime = System.currentTimeMillis() - new Random(System.currentTimeMillis()).nextInt(100000);
-                    record.data = "hello";
+                    if (sn % 3 == 0) {
+                        record.eventTime -= 10000;
+                    }
+                    record.data = "h:" + sn;
                     ctx.collect(record);
                     Thread.sleep(1000);
                 }
