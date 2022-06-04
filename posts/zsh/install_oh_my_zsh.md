@@ -82,6 +82,7 @@ Before you scream Oh My Zsh! look over the `.zshrc` file to select plugins, them
 
 1.[来这里选择你想要的主题](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes), 根据自己的喜好选择
 然后编辑 `~/.zshrc` 文件, `ZSH_THEME="robbyrussell"` 其中 `robbyrussell` 是主题的名称, 编辑完之后, 保存退出, `source ~/.zshrc` 使修改生效
+
 2.[选择插件](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins), 根据自己需要
 
 ....
