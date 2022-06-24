@@ -20,7 +20,7 @@
 # 替换 ubuntu 原来的源到 aliyun
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
 sed -i -E 's/http:\/\/(archive|security).ubuntu.com/[trusted=yes] http:\/\/mirrors.aliyun.com/g' /etc/apt/sources.list
-apt udpate
+apt-get udpate
 ```
 
 ### 安装 git
