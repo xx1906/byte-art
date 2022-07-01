@@ -6,7 +6,7 @@ import (
 	"math"
 )
 
-// 拉个朗日查找,
+// 拉格朗日查找,
 func LagrangeSearch(nums []int, obj int) (idx int, err error) {
 	var i int = 0
 	var lo, hi = 0, len(nums) - 1
