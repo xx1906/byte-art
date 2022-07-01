@@ -17,7 +17,7 @@ int main(void)
     //
     // 在这里运行耗时的函数
     //
-    fibonacci(60); // 这里表示 2 ^ 60 这么大的运算规模的, 相当大的计算量了
+    fibonacci(32); // 这里表示 2 ^ 32 这么大的运算规模的, 相当大的计算量了
     milliseconds end_time = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
     std::cout << "end_time:" << end_time.count() << endl;
     cout << "cost:" << milliseconds(end_time).count() - milliseconds(start_time).count() << "ms" << endl;
