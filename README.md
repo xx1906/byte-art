@@ -1,8 +1,11 @@
-## byte-art
+# byte-art
+
+> 种一棵树, 最佳的时机是 20 年前; 如果没有, 最好的时机就是现在。
 
 [数据结构 演算法图谱](./builder.png)
 
-### 数据机构与算法
+## 数据机构与算法
+
 * 线性表
     1. [数组](linear_list/array)
     2. [链表](linear_list/my_list)
@@ -10,12 +13,11 @@
     4. [栈](linear_list/my_stack)
 * 树
     1. 二叉树
-        * [BST](tree/bst) 
+        * [BST](tree/bst)
         * [堆-->完全二叉树](my_sort/my_heap_sort)
         * [AVL](tree/avl)
-        
     2. 多叉树
-        * BTree    
+        * BTree
 * 图
 
 * 排序算法
@@ -26,7 +28,7 @@
      1. 二分查找
         * 普通二分查找算法
         * [拉格朗日查找算法](search/lagrange_searh)
-     2. map 
+     2. map
      3. 基于树
         * [bst](tree/bst)
         * [avl](tree/avl)
@@ -41,52 +43,59 @@
         * [bitmap](bitmap/bitmap.go)
         * [进程和线程共享的内容](https://www.cnblogs.com/westlife-11358/p/9234955.html)
 * 其他
-    1. [判断整数是否为 2 的整次幂](go_gist/is_power_of_two.go)        
-* HTTP 
-    1. [基于Trie的路由实现](tree/trie/route/main.go)   
-    
+    1. [判断整数是否为 2 的整次幂](go_gist/is_power_of_two.go)
+* HTTP
+    1. [基于Trie的路由实现](tree/trie/route/main.go)
 * 综合运用
-    * [LRU缓存策略实现](linear_list/my_list/lru/main.go)   
-    * [单飞模式](golang/singleflight/singleflight.md)      
+  * [LRU缓存策略实现](linear_list/my_list/lru/main.go)
+    * [单飞模式](golang/singleflight/singleflight.md)
 
 ### 数据库
 
 1. MySQL
-    * [MySQL 大纲图](asset/mysql/mysql.png) 
+    * [MySQL 大纲图](asset/mysql/mysql.png)
     * [ken_len](mysql/key_len_calc_summary.md)
     * [profiling-SQL执行(性能)流程分析](asset/mysql/profile/first/start/data.md)
 2. redis
     * [redis 知识点总结](asset/redis/redis.xmind)
     * [基于redis list 实现的消息ack](asset/redis/redis_ack/redis消息队列ack实现.md)
- 3. database_internals
+
+3. database_internals
 
     * [数据库系统内幕](database_internals)
-    * [文件系统](database_internals/ch3/file_system.md) 
+    * [文件系统](database_internals/ch3/file_system.md)
 
 ### 错误集合
 
 * stackOverflow
+
 1. [如何正确验证 golang interface 的 nil](stack_overflow/question/hiding_nil_values.md)
-* golang 
-1. [切片高级操作](golang/slice_advance.md) 
 
-2. [golang的context中文全文注释](golang/context.md)    
+* golang
 
-3. [cas_mutex_cmpxchgl](golang/挖掘mutex_cas_cmpxchgl.md) 
+1. [切片高级操作](golang/slice_advance.md)
+
+2. [golang的context中文全文注释](golang/context.md)
+
+3. [cas_mutex_cmpxchgl](golang/挖掘mutex_cas_cmpxchgl.md)
+
 ### 工程实践
+
 * [blog](https://www.jianshu.com/p/07cf4093536a)
 * [微软分布式链路追踪 -- Application insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
 
 ### wireshark 数据包分析
+
 * [tcp三次握手包](wireshark_analysis/TCP的三次握手.md)
 * [tcp四次挥手包](wireshark_analysis/TCP的四次挥手数据包.md)
 * [SYN-RST](wireshark_analysis/客户端连接存活的主机但是没有服务的tcp包.md)
 
 ### gists 集合
-[判断一个数是否是2的整次幂](/go_gist/is_power_of_two.go)    
 
+[判断一个数是否是2的整次幂](/go_gist/is_power_of_two.go)
 
 ### go源代码
+
 [golang 官方源代码](https://go.googlesource.com/go/)
 
 [slice切片代码阅读](go_gist/sl/slice_src_int.md)
@@ -102,9 +111,11 @@
 1. [protocol buffer 编码原理实现](encryption/protobuffer/data.md)
 
 ### 算法的时间复杂度比较的是什么
+
 1. 算法在时间维度上的相对增长率
 
 ### 存储引擎层
+
 1. [wiredtiger](http://source.wiredtiger.com/2.6.1/index.html) 作用于 MongoDB
 
 ### 计算机网络
