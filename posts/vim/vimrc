@@ -1,6 +1,6 @@
 syntax enable
 syntax on
-" NERDTreeToggle 配置 ctrl + e 
+" NERDTreeToggle 配置 ctrl + e
 map <silent> <C-e> :NERDTreeToggle<CR>
 
 "tab宽度和缩进设置
@@ -11,16 +11,13 @@ set nocompatible
 "自动锁进和对齐
 set autoindent
 set smartindent
- 
+
 "开启追踪列表选择
 set cscopetag
 set hlsearch
 "默认显示行号
 set number
- 
-"自动加载和保存折叠
-au BufWinLeave * silent mkview
-au BufWinEnter * silent loadview
+
 "括号和引号自动补全
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
@@ -33,7 +30,7 @@ nmap <F9> :TagbarToggle<CR>
 "设置宽度为30
 let g:tagbar_width = 30
 "开启自动预览(随着光标在标签上的移动，顶部会出现一个实时的预览窗口)
-let g:tagbar_autopreview = 1 
+let g:tagbar_autopreview = 1
 "关闭排序,即按标签本身在文件中的位置排序
 let g:tagbar_sort = 0
 
@@ -43,19 +40,19 @@ imap <F2> <C-x><C-o>
 "开启NerdTree
 map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
-autocmd VimEnter * NERDTree
+" 关闭 NERDTree 自动开启
+""autocmd VimEnter * NERDTree
 
 "go函数追踪 ctrl+]追踪 ctrl+o返回
 autocmd FileType go nnoremap <buffer> gd :call GodefUnderCursor()<cr>
-autocmd FileType go nnoremap <buffer> <C-]> :call GodefUnderCursor()<cr>
-let g:godef_split=3    "左右打开新窗口的时候
+autocmd FileType go nnoremap <buffer> <C-]> :call GodefUnderCursor()<cr> let g:godef_split=3    "左右打开新窗口的时候
 let g:godef_same_file_in_same_window=1    "函数在同一个文件中时不需要打开新窗口
 
 set nocompatible
 call plug#begin()
 Plug 'junegunn/vim-easy-align'
 " Plug 'joshdick/onedark.vim'
-" Plug 'ayu-theme/ayu-vim' " or other package manager
+Plug 'ayu-theme/ayu-vim' " or other package manager
 " Plug 'morhetz/gruvbox'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -69,4 +66,5 @@ Plug 'flazz/vim-colorschemes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
+set termguicolors     " enable true colors support
 colorscheme ayu
