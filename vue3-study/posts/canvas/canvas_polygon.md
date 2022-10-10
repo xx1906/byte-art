@@ -2,7 +2,7 @@
 
 ![正多边形的顶点计算](resource/Snipaste_2022-10-10_00-44-42.png)
 
-``` vue3
+```vue3
 <template>
     <div>
         <!-- canvas 容器 -->
@@ -57,6 +57,49 @@ const createPolygon = (
     }
     ctx.closePath();
 };
+</script>
+<style scoped>
+
+</style>
+
+```
+
+## 绘制笑脸
+
+效果如图所示
+
+![笑脸效果](resource/Snipaste_2022-10-11_00-44-26.png)
+
+```vue3
+<template>
+    <div>
+        <!-- canvas 容器 -->
+        <canvas id="canvas-arc" width="200" height="200" style="border: 1px dashed orange" @click="drawArc">
+        </canvas>
+    </div>
+</template>
+<script setup lang="ts">
+const $$ = (id: string): HTMLCanvasElement => {
+    return document.getElementById(id) as HTMLCanvasElement;
+};
+const drawArc = () => {
+    const canvas = $$('canvas-arc');
+    const ctx = canvas.getContext('2d');
+    if (ctx == null) {
+        return;
+    }
+
+    ctx.beginPath();
+    ctx.arc(100, 100, 40, Math.PI / 8, Math.PI * 7 / 8, false);
+
+    ctx.strokeStyle = "orange"
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(80, 90, 6, 0, 2 * Math.PI, false);
+    ctx.arc(120, 90, 6, 0, 2 * Math.PI, false);
+    ctx.closePath();
+    ctx.fill();
+}
 </script>
 <style scoped>
 
