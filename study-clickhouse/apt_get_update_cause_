@@ -1,0 +1,16 @@
+# apt-get update 报错
+
+```shell
+stable InRelease' changed its 'Origin' value from 'Artifactory' to 'ClickHouse'
+```
+
+解决办法:
+
+```shell
+sudo apt-get update --allow-releaseinfo-change
+sudo apt-get upgrade
+```
+
+参考
+
+[Repository changed its 'Suite' value from 'stable' to 'oldstable'](https://blog.csdn.net/hzgaoshichao/article/details/122638405)
